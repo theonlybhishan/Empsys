@@ -20,7 +20,7 @@ def employee(request):
         obj = Person.objects.create(first_name = first_name,last_name= last_name, email = email, address = address)
         print(first_name)
         if obj:
-            return redirect('/')
+            return redirect('employee')
         return HttpResponse("employee is not created")
         # return render(request, 'employee/index.html')
     else:
@@ -40,7 +40,7 @@ def employee_update(request,id):
         person.email = data['email']
         person.save()
         print(person)
-        return redirect('/')
+        return redirect('employee')
 
     context={
         'person':person
@@ -52,7 +52,7 @@ def employee_delete(request,id):
     person = Person.objects.get(id=id)
     if request.method=='POST':
         person.delete()
-        return redirect('/')
+        return redirect('employee')
     
     context={
         'person':person
