@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block main %} <div class="container">
+    <div class="alert alert-danger" role="alert">
+        <h1>Are you sure you want to delete: {{person.first_name}} {{person.last_name}}</h1>
+    </div>
+    <form action="" method="POST">
+    {% csrf_token %}
+        <a href="{% url 'employee' %}" type="button" class="btn btn-outline-info">Cancel</a>
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+    </form>
+</div>
+{% endblock main %}

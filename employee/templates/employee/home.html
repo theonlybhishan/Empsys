@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div class="container mt-4">
+        <div class="card bg-info text-light" style="width: 20rem;">
+                <h5 class="card-title"><b> Total number of Employee: </b></h5>
+                <h1 class="card-text text-center">{{employee}}</h1>
+                <a href="{% url 'employee' %}" class="btn btn-primary">Add employee</a>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
