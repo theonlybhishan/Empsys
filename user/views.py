@@ -3,7 +3,8 @@ from django.shortcuts import render,redirect
 from django.contrib import messages 
 from .forms import UserRegisterForm,LoginForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.views import LogoutView
 
 
 
@@ -40,3 +41,8 @@ def loginUser(request):
         'form':form
     }
     return render(request, 'user/login.html',context)
+
+def LogoutUser(request):
+    #logout_user
+    logout(request)
+    return redirect('login')
