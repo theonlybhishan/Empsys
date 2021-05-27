@@ -31,7 +31,13 @@
           Setting
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% if user.is_authenticated %}
+          <a class="dropdown-item" href="{% url 'register' %}">Logout</a>
+        {% else %}
+          <a class="dropdown-item" href="{% url 'login' %}">Login</a>
           <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+        {% endif %}
+
       </li>
     </ul>
   </div>

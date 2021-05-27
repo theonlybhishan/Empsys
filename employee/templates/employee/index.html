@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block main %}
 <div class= "container">
+{% if user.is_authenticated %}
     <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">
         Add New
     </button>
+{% endif %}
 
     <div class="card mt-4">
     <!-- Button trigger modal -->
@@ -20,7 +22,9 @@
                 <th scope="col">Last</th>
                 <th scope="col">Address</th>
                 <th scope="col">Email</th>
+                {% if user.is_authenticated %}
                 <th scope="col">Action</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
@@ -32,8 +36,10 @@
                     <td>{{person.last_name}}</td>
                     <td>{{person.address}}</td>
                     <td>{{person.email}}</td>
+                    {% if user.is_authenticated %}
                     <td><a href="{% url 'update' person.id%} " class="btn btn-outline-info btn-sm">Update</a>
                     <a href="{% url 'delete' person.id%} " class="btn btn-outline-danger btn-sm ml-3">Delete</a></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
